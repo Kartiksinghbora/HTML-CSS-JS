@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            position: absolute;
+            left: 500px;
+            top: 50px;
+            height: 550px;
+            width: 400px;
+            background-image: linear-gradient(to bottom, rgba(144, 131, 147, 0.393), rgba(133, 61, 161, 0.47), rgba(130, 60, 157, 0.47));
+        }
+
+        #screen {
+            position: relative;
+            height: 80px;
+            width: 350px;
+            background-color: rgba(126, 177, 179, 0.47);
+            background-color: rgba(69, 139, 192, 0.134);
+            /* margin: auto; */
+            margin-top: 20px;
+            border: 2px transparent;
+            border-radius: 8px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        input {
+            height: 50px;
+            width: 70px;
+            box-shadow: 3px 2px rgba(97, 67, 104, 0.825);
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        input:hover {
+            background-color: rgba(69, 139, 192, 0.597);
+            color: whitesmoke;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="calculator">
+
+            <input type="text" id="screen" value="">
+
+            <div style="margin-top: 40px;">
+                <input type="button" value="C" style="color:red" onclick="clr()">
+                <input type="button" value="()" onclick="show(this.value)" />
+                <input type="button" value="%" onclick="show(this.value)" />
+                <input type="button" value="/" onclick="show(this.value)" />
+            </div>
+
+            <div>
+                <input type="button" value="7" onclick="show(this.value)" />
+                <input type="button" value="8" onclick="show(this.value) " />
+                <input type="button" value="9" onclick="show(this.value)" />
+                <input type="button" value="*" onclick="show(this.value)" />
+            </div>
+
+            <div>
+                <input type="button" value="4" onclick="show(this.value)" />
+                <input type="button" value="5" onclick="show(this.value)" />
+                <input type="button" value="6" onclick="show(this.value)" />
+                <input type="button" value="-" onclick="show(this.value)" />
+            </div>
+
+            <div>
+                <input type="button" value="1" onclick="show(this.value)" />
+                <input type="button" value="2" onclick="show(this.value)" />
+                <input type="button" value="3" onclick="show(this.value)" />
+                <input type="button" value="+" onclick="show(this.value)">
+            </div>
+
+            <div>
+                <input type="button" value="00" onclick="show(this.value)" />
+                <input type="button" value="0" onclick="show(this.value)" />
+                <input type="button" value="." onclick="show(this.value)" />
+                <input type="button" value="=" onclick="calculate()" />
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+
+        function show(val) {
+            let num2 = document.getElementById("screen").value;
+            document.getElementById("screen").value = num2 + val;
+        }
+
+        function calculate() {
+            let num2 = document.getElementById("screen").value;
+            document.getElementById("screen").value = eval(num2);
+        }
+
+        function clr() {
+            document.getElementById("screen").value = "";
+        }
+
+    </script>
+
+
+</body>
+
+</html>
