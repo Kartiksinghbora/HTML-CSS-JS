@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap" rel="stylesheet">
+    <title>Melody</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+        }
+
+        /* .container {
+            height: 100%;
+            width: 100%;
+        } */
+
+
+        .container #bg {
+            height: 55em;
+            position: fixed;
+            width: 100%;
+            margin-top: -100px;
+
+        }
+
+        .container #logo {
+            height: 70px;
+            width: 120px;
+            z-index: 2;
+            animation-name: shake;
+            /* transform: rotate(-10deg);
+            transition: 2s; */
+        }
+
+        /* @keyframes shake {
+            0%{
+                transform: translate(10px) rotate(20deg)
+            
+            }
+            100%{
+                transform: translate(10px) rotate(20deg)
+            }
+            
+        } */
+
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 25px;
+
+
+        }
+
+        .nav ul {
+            z-index: 2;
+            font-family: 'Annie Use Your Telescope';
+            font-size: 20px;
+        }
+
+        .nav ul li {
+            float: left;
+            padding-left: 40px;
+            color: rgb(32, 37, 38);
+        }
+
+        .text {
+            z-index: 2;
+            position: relative;
+            margin-top: 180px;
+            margin-left: 130px;
+            font-size: 45px;
+            color: rgba(240, 248, 255, 0.799);
+            font-family: sans-serif;
+        }
+
+        .plays {
+            z-index: 2;
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-top: -180px;
+            cursor: pointer;
+            justify-content: end;
+            margin-right: 250px;
+            color: rgba(0, 0, 0, 0.799);
+        }
+
+        .plays img {
+            height: 40px;
+            margin-left: 8px;
+        }
+
+        @media screen and (max-width:480px) {
+            .nav{
+                width: 500px;
+                margin-left: -20px;
+            }
+            .text{
+                margin-left: -0px;
+                margin-top: 100px;
+            }
+            .plays{
+                margin-top: 80px;
+                margin-left: -50px;
+                width: 400px;
+            }
+        }
+
+          @media screen and (max-width:780px) {
+            .nav{
+                width: 500px;
+                 margin-left: 80px; 
+            }
+            .text{
+                margin-left: 250px;
+                margin-top: 100px;
+                
+            }
+            .plays{
+                margin-top: 100px;
+                margin-left: 80px;
+                width: 400px;
+            }
+        } 
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="nav">
+            <!-- <img src="image/logo.webp" id="logo"> -->
+            <ul>
+                <a href="#">
+                    <li>HOME</li>
+                </a>
+                <a href="#">
+                    <li>COLLECTIONS</li>
+                </a>
+                <a href="#">
+                    <li>FAVOURITES</li>
+                </a>
+                <a href="#">
+                    <li>TRENDINGS</li>
+                </a>
+
+            </ul>
+        </div>
+        <img src="image/bg.jpg" id="bg">
+
+        <div class="text">
+            <h1>THE <br> REAL <br> SOUND</h1>
+        </div>
+
+        <div class="plays">
+            <h3>Click here to listen </h3>
+            <img src="image/icons8-play-50.png" alt="play" id="playbtn">
+        </div>
+
+
+    </div>
+
+    <audio id="mysong">
+        <source src="image/Taylor-Swift-Lover_(Nobadsong.com).mp3" type="audio/mp3" />
+    </audio>
+
+    <script>
+        var song = document.getElementById("mysong");
+        var bt = document.getElementById("playbtn");
+
+        bt.onclick = function () {
+            if (song.paused) {
+                song.play();
+                bt.src = "image/icons8-pause-50.png";
+            }
+            else {
+                song.pause();
+                bt.src = "image/icons8-play-50.png";
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>
