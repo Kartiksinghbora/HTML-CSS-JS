@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        span img {
+            width: 18rem;
+            height: 20rem;
+            border: 1px solid rgb(85, 83, 83);
+        }
+
+        .gallery {
+            width: 900px;
+            display: flex;
+            overflow-x: scroll;
+        }
+
+        .gallery div {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 10px;
+            padding: 5px;
+            flex: none;
+        }
+
+        .gallery::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gallery-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gallery-wrap">
+        <img src="images/back.png" id="backbtn">
+        <div class="gallery">
+            <div>
+                <span> <img src="images/item1.jpg"></span>
+                <span> <img src="images/item2.jpg"></span>
+                <span> <img src="images/item3.jpg"></span>
+            </div>
+            <div>
+                <span> <img src="images/item4.JPG"></span>
+                <span> <img src="images/item5.webp"></span>
+                <span> <img src="images/item6.webp"></span>
+            </div>
+            <div>
+                <span> <img src="images/item1.jpg"></span>
+                <span> <img src="images/item2.jpg"></span>
+                <span> <img src="images/item3.jpg"></span>
+            </div>
+            <div>
+                <span> <img src="images/item4.JPG"></span>
+                <span> <img src="images/item5.webp"></span>
+                <span> <img src="images/item6.webp"></span>
+            </div>
+        </div>
+        <img src="images/next.png" id="nextbtn">
+
+    </div>
+
+    <script>
+        let scrollbar = document.querySelector(".gallery");
+        let backbtn = document.getElementById("backbtn");
+        let nextbtn = document.getElementById("nextbtn");
+
+        scrollbar.addEventListener("wheel", function (evt) {
+            evt.preventDefault();
+            scrollbar.scrollLeft += evt.deltaY;
+        });
+
+        backbtn.addEventListener("click", function () {
+            scrollbar.style.scrollBehavior = "smooth";
+            scrollbar.scrollLeft -= 900;
+        });
+
+        nextbtn.addEventListener("click", function () {
+            scrollbar.style.scrollBehavior = "smooth";
+            scrollbar.scrollLeft += 900;
+        });
+    </script>
+</body>
+
+</html>
